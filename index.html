@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Analytix 360 Phase 2 Development Tracker</title>
+<meta name="description" content="Analytix 360 Phase 2 Development Tracker - innovations, features, suggestions and remarks for the next release.">
+<style>
+:root{--bg:#f4f6fb;--surf:#fff;--surf2:#eef1f8;--tx:#111936;--mu:#5d6788;--bd:#dfe4f0;--ac:#5b5bf0;--ac2:#9b5cf6;--ok:#12a36b;--wa:#e8930c;--er:#e5484d;--in:#2f8fe8;--sh:0 6px 24px rgba(30,40,100,.08);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1020;--surf:#131a31;--surf2:#1a2340;--tx:#eef1ff;--mu:#97a2c8;--bd:#263056;--sh:0 6px 24px rgba(0,0,0,.4)}}
+:root[data-theme="dark"]{--bg:#0b1020;--surf:#131a31;--surf2:#1a2340;--tx:#eef1ff;--mu:#97a2c8;--bd:#263056;--sh:0 6px 24px rgba(0,0,0,.4)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:14px}
+.wrap{max-width:1400px;margin:0 auto;padding:20px}
+.hero{background:linear-gradient(120deg,var(--ac),var(--ac2));color:#fff;border-radius:20px;padding:26px 28px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;box-shadow:var(--sh)}
+.hero h1{margin:0 0 6px;font-size:26px;letter-spacing:-.4px}.hero p{margin:0;opacity:.88;max-width:560px}
+.tag{display:inline-block;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;background:rgba(255,255,255,.2);padding:4px 10px;border-radius:99px;margin-bottom:10px}
+.btns{display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap}
+button,select,input,textarea{font:inherit;color:inherit}
+.btn{border:0;border-radius:10px;padding:9px 16px;font-weight:600;cursor:pointer;background:rgba(255,255,255,.2);color:#fff}
+.btn.p{background:#fff;color:var(--ac)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin:18px 0}
+.k{background:var(--surf);border:1px solid var(--bd);border-radius:16px;padding:16px;box-shadow:var(--sh)}
+.k small{color:var(--mu);font-size:12px;text-transform:uppercase;letter-spacing:.8px}.k b{display:block;font-size:28px;margin-top:4px}
+.bar{height:10px;border-radius:99px;background:var(--surf2);overflow:hidden;display:flex;margin-top:10px}
+.bar i{display:block;height:100%}
+.panel{background:var(--surf);border:1px solid var(--bd);border-radius:16px;box-shadow:var(--sh);overflow:hidden}
+.tools{display:flex;gap:10px;flex-wrap:wrap;padding:14px;border-bottom:1px solid var(--bd)}
+.tools input,.tools select{background:var(--surf2);border:1px solid var(--bd);border-radius:10px;padding:9px 12px}
+.tools input{flex:1;min-width:180px}
+.scroll{overflow-x:auto;max-height:70vh}
+table{border-collapse:collapse;width:100%;min-width:1450px}
+th{position:sticky;top:0;background:var(--surf2);text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.9px;color:var(--mu);padding:12px 14px;white-space:nowrap;z-index:1}
+td{padding:13px 14px;border-top:1px solid var(--bd);vertical-align:top}
+tr:hover td{background:var(--surf2)}
+.t{font-weight:600}.d{color:var(--mu);font-size:12.5px;margin-top:3px;max-width:340px}
+.pill{display:inline-block;padding:3px 10px;border-radius:99px;font-size:12px;font-weight:600;white-space:nowrap;background:color-mix(in srgb,var(--c) 15%,transparent);color:var(--c)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--c);margin-right:6px}
+.act button{background:none;border:1px solid var(--bd);border-radius:8px;padding:4px 9px;cursor:pointer;margin-right:4px;color:var(--mu)}
+.empty{padding:40px;text-align:center;color:var(--mu)}
+.modal{position:fixed;inset:0;background:rgba(5,8,20,.55);display:none;align-items:center;justify-content:center;padding:16px;z-index:10}
+.modal.on{display:flex}
+.box{background:var(--surf);border-radius:18px;width:100%;max-width:680px;max-height:92vh;overflow:auto;padding:22px;border:1px solid var(--bd)}
+.box h2{margin:0 0 14px}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:12px}.g .f{grid-column:span 1}.g .w{grid-column:span 2}
+label{display:block;font-size:12px;color:var(--mu);margin-bottom:4px;font-weight:600}
+.box input,.box select,.box textarea{width:100%;background:var(--surf2);border:1px solid var(--bd);border-radius:10px;padding:9px 11px}
+.foot{display:flex;justify-content:flex-end;gap:8px;margin-top:16px}
+.foot .btn{background:var(--surf2);color:var(--tx)}.foot .btn.p{background:var(--ac);color:#fff}
+@media(max-width:560px){.g{grid-template-columns:1fr}.g .w{grid-column:span 1}.hero h1{font-size:21px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <div><span class="tag">Phase 2 · Roadmap</span><h1>Analytix 360 Phase 2 Development Tracker</h1>
+    <p>Single source of truth for innovations, new features, suggestions and remarks driving the next release.</p></div>
+    <div class="btns"><span class="tag" id="st" style="margin:0;align-self:center">Connecting…</span><button class="btn" id="th">◐ Theme</button><button class="btn p" id="add">+ New Item</button></div>
+  </div>
+  <div id="bn" style="display:none;margin:14px 0 0;padding:10px 14px;border-radius:10px;background:var(--surf2);border:1px solid var(--bd);color:var(--mu)"></div>
+  <div class="kpis" id="kpis"></div>
+  <div class="panel">
+    <div class="tools">
+      <input id="q" placeholder="Search title, description, owner, remarks…">
+      <select id="fc"></select><select id="fs"></select><select id="fp"></select>
+    </div>
+    <div class="scroll"><table><thead><tr>
+      <th>ID</th><th>Category</th><th>Title</th><th>Description</th><th>Priority</th><th>Impact</th><th>Effort</th><th>Status</th><th>Progress</th><th>Owner</th><th>Raised</th><th>Target</th><th>Remarks</th><th></th>
+    </tr></thead><tbody id="rows"></tbody></table></div>
+    <div class="empty" id="empty" style="display:none">No items match your filters.</div>
+  </div>
+</div>
+
+<div class="modal" id="m"><div class="box">
+  <h2 id="mt">New Item</h2>
+  <div class="g">
+    <div class="w"><label>Title</label><input id="f_title"></div>
+    <div class="w"><label>Description</label><textarea id="f_desc" rows="3"></textarea></div>
+    <div class="f"><label>Category</label><select id="f_cat"></select></div>
+    <div class="f"><label>Priority</label><select id="f_pri"></select></div>
+    <div class="f"><label>Impact</label><select id="f_imp"></select></div>
+    <div class="f"><label>Effort</label><select id="f_eff"></select></div>
+    <div class="f"><label>Status</label><select id="f_sta"></select></div>
+    <div class="f"><label>Progress (%)</label><input id="f_pro" type="number" min="0" max="100"></div>
+    <div class="f"><label>Owner</label><input id="f_own"></div>
+    <div class="f"><label>Date Raised</label><input id="f_dr" type="date"></div>
+    <div class="f"><label>Target Date</label><input id="f_dt" type="date"></div>
+    <div class="w"><label>Remarks</label><textarea id="f_rem" rows="2"></textarea></div>
+  </div>
+  <div class="foot"><button class="btn" id="cx">Cancel</button><button class="btn p" id="sv">Save</button></div>
+</div></div>
+
+<script>
+const CAT={"Innovation":"#9b5cf6","Feature":"#2f8fe8","Suggestion":"#e8930c","Improvement":"#12a36b","Remark":"#7a869f"};
+const PRI={"Critical":"#e5484d","High":"#e8930c","Medium":"#2f8fe8","Low":"#7a869f"};
+const LVL={"High":"#12a36b","Medium":"#e8930c","Low":"#7a869f"};
+const EFF={"High":"#e5484d","Medium":"#e8930c","Low":"#12a36b"};
+const STA={"Proposed":"#7a869f","Under Review":"#e8930c","Approved":"#2f8fe8","In Progress":"#5b5bf0","Completed":"#12a36b","On Hold":"#e5484d"};
+const KEY="analytix360-phase2-tracker-v1";
+const SEED=[{id:1,title:"AI-powered smart search",desc:"Semantic search across all modules with natural-language queries.",cat:"Innovation",pri:"High",imp:"High",eff:"High",sta:"Under Review",pro:15,own:"Arjun N.",dr:"2026-09-18",dt:"2026-12-15",rem:"Evaluate vendor vs. in-house model."},
+{id:2,title:"Role-based dashboards",desc:"Configurable widgets per user role with saved layouts.",cat:"Feature",pri:"Critical",imp:"High",eff:"Medium",sta:"In Progress",pro:55,own:"Meera S.",dr:"2026-09-02",dt:"2026-11-20",rem:"UI mockups approved by stakeholders."},
+{id:3,title:"Real-time notifications",desc:"Push, email and in-app alerts with user preferences.",cat:"Feature",pri:"High",imp:"Medium",eff:"Medium",sta:"Approved",pro:20,own:"Rahul K.",dr:"2026-09-10",dt:"2026-12-01",rem:"Depends on messaging service setup."},
+{id:4,title:"Reduce page load time",desc:"Lazy loading and caching to cut initial load below 2s.",cat:"Improvement",pri:"High",imp:"High",eff:"Low",sta:"In Progress",pro:70,own:"Sneha P.",dr:"2026-08-25",dt:"2026-10-30",rem:"Currently averaging 3.4s."},
+{id:5,title:"Dark mode & accessibility",desc:"Theme support and WCAG 2.1 AA compliance.",cat:"Suggestion",pri:"Medium",imp:"Medium",eff:"Low",sta:"Proposed",pro:0,own:"Unassigned",dr:"2026-10-05",dt:"2027-01-10",rem:"Requested in user feedback survey."},
+{id:6,title:"Public API & integrations",desc:"REST API with webhooks for third-party systems.",cat:"Innovation",pri:"Medium",imp:"High",eff:"High",sta:"On Hold",pro:5,own:"Arjun N.",dr:"2026-09-22",dt:"2027-02-15",rem:"Pending security review."},
+{id:7,title:"Phase 1 feedback summary",desc:"Consolidated learnings from pilot users.",cat:"Remark",pri:"Low",imp:"Low",eff:"Low",sta:"Completed",pro:100,own:"Meera S.",dr:"2026-08-30",dt:"2026-09-30",rem:"Shared with leadership."}];
+let items=[],local=false,db=null,canWrite=true,live=false,failed=false,eid=null;
+const $=i=>document.getElementById(i);
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const pill=(t,map)=>`<span class="pill" style="--c:${map[t]||'#7a869f'}">${esc(t)}</span>`;
+const opts=(sel,list,first)=>{sel.innerHTML=(first?`<option value="">${first}</option>`:"")+list.map(x=>`<option>${x}</option>`).join("")};
+opts($("fc"),Object.keys(CAT),"All categories");opts($("fs"),Object.keys(STA),"All statuses");opts($("fp"),Object.keys(PRI),"All priorities");
+opts($("f_cat"),Object.keys(CAT));opts($("f_pri"),Object.keys(PRI));opts($("f_imp"),Object.keys(LVL));opts($("f_eff"),Object.keys(EFF));opts($("f_sta"),Object.keys(STA));
+const fmt=d=>{if(!d)return"—";const x=new Date(d+"T00:00:00");return isNaN(x)?"—":x.toLocaleDateString("en-GB",{day:"2-digit",month:"short",year:"numeric"})};
+function setStatus(){
+  $("st").textContent=local?"This browser only":failed?"Offline · sign in via shared link":!live?"Connecting…":canWrite?"Live · shared":"Live · view only";
+  $("add").style.display=(live&&canWrite)?"":"none";
+}
+function kpis(){
+  const n=items.length,c=s=>items.filter(i=>i.sta===s).length;
+  const avg=n?Math.round(items.reduce((a,i)=>a+(+i.pro||0),0)/n):0;
+  const bar=Object.keys(STA).map(s=>`<i title="${s}" style="width:${n?c(s)/n*100:0}%;background:${STA[s]}"></i>`).join("");
+  $("kpis").innerHTML=`<div class="k"><small>Total Items</small><b>${n}</b></div>
+  <div class="k"><small>In Progress</small><b>${c("In Progress")}</b></div>
+  <div class="k"><small>Completed</small><b>${c("Completed")}</b></div>
+  <div class="k"><small>Critical / High</small><b>${items.filter(i=>i.pri==="Critical"||i.pri==="High").length}</b></div>
+  <div class="k"><small>Overall Progress</small><b>${avg}%</b><div class="bar"><i style="width:${avg}%;background:linear-gradient(90deg,var(--ac),var(--ac2))"></i></div></div>
+  <div class="k"><small>Status Mix</small><div class="bar" style="margin-top:22px">${bar}</div></div>`;
+}
+function render(){
+  setStatus();kpis();
+  const q=$("q").value.toLowerCase(),fc=$("fc").value,fs=$("fs").value,fp=$("fp").value;
+  const list=items.filter(i=>(!fc||i.cat===fc)&&(!fs||i.sta===fs)&&(!fp||i.pri===fp)&&(!q||[i.title,i.desc,i.own,i.rem].join(" ").toLowerCase().includes(q))).sort((a,b)=>(+a.id||0)-(+b.id||0));
+  $("empty").textContent=failed?"Live data is unavailable here. Open the shared link and sign in to view the tracker.":!live?"Loading…":"No items match your filters.";
+  $("empty").style.display=list.length?"none":"block";
+  $("rows").innerHTML=list.map(i=>`<tr>
+  <td>P2-${String(i.id||0).padStart(3,"0")}</td><td>${pill(i.cat,CAT)}</td>
+  <td style="min-width:200px"><div class="t">${esc(i.title)}</div></td><td><div class="d" style="margin:0;max-width:320px">${esc(i.desc)||"—"}</div></td>
+  <td>${pill(i.pri,PRI)}</td><td>${pill(i.imp,LVL)}</td><td>${pill(i.eff,EFF)}</td>
+  <td><span class="pill" style="--c:${STA[i.sta]||'#7a869f'}"><span class="dot"></span>${esc(i.sta)}</span></td>
+  <td style="min-width:110px">${+i.pro||0}%<div class="bar" style="margin-top:6px"><i style="width:${+i.pro||0}%;background:${STA[i.sta]||'#5b5bf0'}"></i></div></td>
+  <td>${esc(i.own)}</td><td>${fmt(i.dr)}</td><td>${fmt(i.dt)}</td>
+  <td><div class="d" style="max-width:220px;margin:0">${esc(i.rem)||"—"}</div></td>
+  <td class="act" style="white-space:nowrap">${canWrite?`<button data-e="${esc(i._k)}">Edit</button><button data-d="${esc(i._k)}">✕</button>`:""}</td></tr>`).join("");
+}
+const F={title:"f_title",desc:"f_desc",cat:"f_cat",pri:"f_pri",imp:"f_imp",eff:"f_eff",sta:"f_sta",pro:"f_pro",own:"f_own",dr:"f_dr",dt:"f_dt",rem:"f_rem"};
+function openM(key){
+  eid=key;const it=items.find(x=>x._k===key)||{cat:"Feature",pri:"Medium",imp:"Medium",eff:"Medium",sta:"Proposed",pro:0,dr:new Date().toISOString().slice(0,10)};
+  $("mt").textContent=key?"Edit Item":"New Item";
+  for(const k in F)$(F[k]).value=it[k]==null?"":it[k];
+  $("m").classList.add("on");
+}
+function denied(e){
+  if(e&&e.code==="invalid_argument"){canWrite=false;render();alert("You have view-only access. Ask the owner to share the tracker with edit (Contributor) access.")}
+  else alert("Could not save changes. Please try again.");
+}
+$("add").onclick=()=>openM(null);
+$("cx").onclick=()=>$("m").classList.remove("on");
+$("m").onclick=e=>{if(e.target.id==="m")$("m").classList.remove("on")};
+$("sv").onclick=async()=>{
+  if(!db&&!local)return;
+  const o={};for(const k in F)o[k]=$(F[k]).value;
+  if(!o.title.trim()){$("f_title").focus();return}
+  o.pro=Math.max(0,Math.min(100,+o.pro||0));
+  const b=$("sv");b.disabled=true;
+  try{
+    if(local){if(eid){items=items.map(x=>x._k===eid?{...x,...o}:x)}else{o.id=items.reduce((a,x)=>Math.max(a,+x.id||0),0)+1;o._k="k"+Date.now();items.push(o)}persist();render()}
+    else if(eid){await db.doc("items/"+eid).update(o)}
+    else{o.id=items.reduce((a,x)=>Math.max(a,+x.id||0),0)+1;await db.collection("items").doc().set(o)}
+    $("m").classList.remove("on");
+  }catch(e){denied(e)}
+  b.disabled=false;
+};
+$("rows").onclick=async e=>{
+  const b=e.target.closest("button");if(!b||(!db&&!local))return;
+  if(b.dataset.e)openM(b.dataset.e);
+  if(b.dataset.d&&confirm("Delete this item for everyone?")){
+    try{if(local){items=items.filter(x=>x._k!==b.dataset.d);persist();render()}else await db.doc("items/"+b.dataset.d).delete()}catch(x){denied(x)}
+  }
+};
+["q","fc","fs","fp"].forEach(i=>$(i).oninput=render);
+$("th").onclick=()=>{
+  const r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;
+  r.dataset.theme=dark?"light":"dark";
+};
+render();
+(async()=>{
+  try{
+    if(!window.claude||!claude.use)throw 0;
+    const [d,u]=await Promise.all([claude.use("db"),claude.use("user")]);
+    if(!d)throw 0;
+    db=d;
+    if(u){try{const w=await u.can("data.write");if(w===false)canWrite=false}catch(e){}}
+    db.collection("items").onSnapshot(snap=>{
+      items=snap.docs.map(x=>({...x.data(),_k:x.id}));live=true;failed=false;render();
+    },()=>{failed=true;live=false;render()});
+  }catch(e){startLocal()}
+})();
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(items))}catch(e){}}
+function startLocal(){
+  local=true;failed=false;live=true;canWrite=true;
+  const seed=()=>SEED.map((x,i)=>({...x,_k:"s"+i}));
+  try{const v=localStorage.getItem(KEY);items=v?JSON.parse(v):seed()}catch(e){items=seed()}
+  if(!Array.isArray(items))items=seed();
+  render();
+}
+</script>
+</body>
+</html>
